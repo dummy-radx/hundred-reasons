@@ -84,7 +84,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ reason, index, onOpen }) => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-xs sm:text-sm md:text-base text-gray-800 font-bold leading-relaxed w-full my-auto"
+                className="text-lg sm:text-4xl md:text-2xl lg:text-2xl text-gray-800 font-bold leading-relaxed w-full my-auto"
               >
                 {reason}
               </motion.div>
