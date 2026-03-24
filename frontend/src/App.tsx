@@ -1,10 +1,15 @@
 
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { reasons } from './reasons';
 import Envelope from './components/Envelope';
+import GrandFinaleModal from './components/GrandFinaleModal';
 import { Sparkles, Heart } from 'lucide-react';
 import './index.css';
 
 function App() {
+  const [showFinale, setShowFinale] = useState(false);
+
   return (
     <div className="min-h-screen py-10 px-4 sm:px-8 relative overflow-hidden">
       {/* Decorative floating background elements */}
@@ -44,6 +49,23 @@ function App() {
       <footer className="text-center pb-10 text-gray-600 text-xl">
         <p>Made with endless love by Ishan 💖</p>
       </footer>
+
+      {/* Special Surprise button */}
+      <div className="text-center pb-16">
+        <button
+          onClick={() => setShowFinale(true)}
+          className="relative inline-flex items-center gap-3 px-10 py-5 bg-linear-to-r from-pink-400 via-rose-400 to-pink-500 text-white font-bold text-xl rounded-full shadow-xl hover:shadow-pink-300/60 hover:scale-105 active:scale-95 transition-all duration-300 group"
+        >
+          <span className="text-2xl animate-bounce">🎁</span>
+          <span>A Special Surprise for You</span>
+          <span className="text-2xl animate-bounce">💖</span>
+          {/* Glowing ring */}
+          <span className="absolute inset-0 rounded-full ring-4 ring-pink-300/50 animate-ping pointer-events-none" />
+        </button>
+      </div>
+      <AnimatePresence>
+        {showFinale && <GrandFinaleModal onClose={() => setShowFinale(false)} />}
+      </AnimatePresence>
     </div>
   );
 }

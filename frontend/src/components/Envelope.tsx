@@ -5,12 +5,13 @@ import { Flower2, Heart, Sparkles, Smile } from 'lucide-react';
 interface EnvelopeProps {
   reason: string;
   index: number;
+  onOpen?: () => void;
 }
 
 const STICKERS = [Flower2, Heart, Sparkles, Smile];
 const COLORS = ['bg-red-300', 'bg-pink-300', 'bg-yellow-300', 'bg-blue-300', 'bg-purple-300', 'bg-emerald-300'];
 
-const Envelope: React.FC<EnvelopeProps> = ({ reason, index }) => {
+const Envelope: React.FC<EnvelopeProps> = ({ reason, index, onOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   // Deterministic stickers and colors based on index so they don't change on re-render
@@ -25,7 +26,12 @@ const Envelope: React.FC<EnvelopeProps> = ({ reason, index }) => {
       whileHover={!isOpen ? { scale: 1.05, rotate: index % 2 === 0 ? 2 : -2, y: -5 } : {}}
       transition={{ duration: 0.5, delay: index * 0.02 }}
       className={`relative w-full max-w-md sm:max-w-xl mx-auto cursor-pointer perspective-1000 ${!isOpen ? 'aspect-4/3' : 'aspect-square sm:aspect-4/5'}`}
-      onClick={() => setIsOpen(true)}
+      onClick={() => {
+        if (!isOpen) {
+          setIsOpen(true);
+          onOpen?.();
+        }
+      }}
     >
       <AnimatePresence>
         {!isOpen ? (
