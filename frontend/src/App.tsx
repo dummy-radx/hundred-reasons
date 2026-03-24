@@ -26,14 +26,14 @@ function App() {
         <Sparkles size={30} />
       </div>
 
-      <header className="text-center mb-16 relative z-10">
-        <h1 className="text-5xl md:text-7xl font-bold text-pink-500 mb-4 drop-shadow-sm">
+      <header className="text-center mb-10 sm:mb-16 relative z-10 px-2">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-pink-500 mb-3 drop-shadow-sm">
           100 Reasons
         </h1>
-        <h2 className="text-3xl md:text-5xl text-gray-700 animate-pulse">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl text-gray-700 animate-pulse">
           Why I Love Sreeparna 🌻
         </h2>
-        <p className="mt-4 text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto">
+        <p className="mt-3 text-base sm:text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto">
           Tap an envelope to reveal a reason...
         </p>
       </header>
@@ -51,14 +51,14 @@ function App() {
       </footer>
 
       {/* Special Surprise button */}
-      <div className="text-center pb-16">
+      <div className="text-center pb-16 px-4">
         <button
           onClick={() => setShowFinale(true)}
-          className="relative inline-flex items-center gap-3 px-10 py-5 bg-linear-to-r from-pink-400 via-rose-400 to-pink-500 text-white font-bold text-xl rounded-full shadow-xl hover:shadow-pink-300/60 hover:scale-105 active:scale-95 transition-all duration-300 group"
+          className="relative inline-flex items-center justify-center gap-2 sm:gap-3 w-full max-w-xs sm:max-w-none sm:w-auto px-6 sm:px-10 py-4 sm:py-5 bg-linear-to-r from-pink-400 via-rose-400 to-pink-500 text-white font-bold text-base sm:text-xl rounded-full shadow-xl hover:shadow-pink-300/60 hover:scale-105 active:scale-95 transition-all duration-300"
         >
-          <span className="text-2xl animate-bounce">🎁</span>
+          <span className="text-xl sm:text-2xl animate-bounce">🎁</span>
           <span>A Special Surprise for You</span>
-          <span className="text-2xl animate-bounce">💖</span>
+          <span className="text-xl sm:text-2xl animate-bounce">💖</span>
           {/* Glowing ring */}
           <span className="absolute inset-0 rounded-full ring-4 ring-pink-300/50 animate-ping pointer-events-none" />
         </button>

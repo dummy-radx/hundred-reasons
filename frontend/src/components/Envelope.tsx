@@ -79,12 +79,12 @@ const Envelope: React.FC<EnvelopeProps> = ({ reason, index, onOpen }) => {
             </div>
 
             {/* Content container with padding and center alignment */}
-            <div className="flex-1 w-full h-full flex flex-col items-center justify-center px-6 py-12 sm:px-12 sm:py-16 z-10">
+            <div className="flex-1 w-full h-full flex flex-col items-center justify-center px-4 py-8 sm:px-10 sm:py-12 z-10">
               <motion.div 
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-sm sm:text-base md:text-lg text-gray-800 font-bold leading-relaxed w-full my-auto"
+                className="text-xs sm:text-sm md:text-base text-gray-800 font-bold leading-relaxed w-full my-auto"
               >
                 {reason}
               </motion.div>

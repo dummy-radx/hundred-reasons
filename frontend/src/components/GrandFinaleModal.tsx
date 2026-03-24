@@ -51,25 +51,25 @@ const GrandFinaleModal: React.FC<GrandFinaleModalProps> = ({ onClose }) => {
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-pink-500 transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 flex items-center justify-center rounded-full bg-pink-50 text-gray-400 hover:text-pink-500 hover:bg-pink-100 transition-colors text-xl font-bold"
         >
           ✕
         </button>
 
-        <Heart className="w-16 h-16 text-pink-500 animate-pulse mb-4" fill="currentColor" />
+        <Heart className="w-10 h-10 sm:w-16 sm:h-16 text-pink-500 animate-pulse mb-3 sm:mb-4" fill="currentColor" />
         
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-pink-600 mb-6 font-serif">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-pink-600 mb-4 sm:mb-6 font-serif leading-snug">
           To my beautiful girl, Sreeparna 🌻
         </h2>
         
-        <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
+        <p className="text-sm sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed font-medium">
           You made it to the end! These 100 reasons are just a small fraction of why I adore you. 
           To celebrate you, here are some of your favorite things—bright sunflowers to match your radiant soul, 
           some delicious Oreo Silk chocolate, and the fluffiest plushies just for you. 
           I love you endlessly, cutu! 💖
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 w-full mb-6 sm:mb-8">
           <motion.div 
             whileHover={{ scale: 1.05, rotate: -2 }}
             className="flex flex-col items-center"
