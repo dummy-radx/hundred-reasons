@@ -24,7 +24,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ reason, index }) => {
       animate={{ opacity: 1, y: 0 }}
       whileHover={!isOpen ? { scale: 1.05, rotate: index % 2 === 0 ? 2 : -2, y: -5 } : {}}
       transition={{ duration: 0.5, delay: index * 0.02 }}
-      className="relative w-full aspect-4/3 max-w-sm mx-auto cursor-pointer perspective-1000"
+      className={`relative w-full max-w-md sm:max-w-xl mx-auto cursor-pointer perspective-1000 ${!isOpen ? 'aspect-4/3' : 'aspect-square sm:aspect-4/5'}`}
       onClick={() => setIsOpen(true)}
     >
       <AnimatePresence>
@@ -57,27 +57,31 @@ const Envelope: React.FC<EnvelopeProps> = ({ reason, index }) => {
             initial={{ rotateY: -180, opacity: 0, scale: 0.8 }}
             animate={{ rotateY: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-            className="absolute inset-0 bg-[#fffdf5] rounded-2xl shadow-xl p-8 sm:p-10 flex flex-col items-center justify-center text-center border-4 border-dashed border-pink-200 overflow-hidden"
+            className="absolute inset-0 bg-[#fffdf5] rounded-2xl shadow-xl flex flex-col text-center border-4 border-dashed border-pink-200 overflow-hidden"
           >
-            {/* Cute card background texture / pattern could go here */}
-            <div className="absolute top-2 left-2 opacity-20">
+            {/* Corner decorations */}
+            <div className="absolute top-3 left-3 opacity-30 pointer-events-none">
               <Flower2 className="w-6 h-6 text-yellow-500" />
             </div>
-            <div className="absolute bottom-2 right-2 opacity-20">
+            <div className="absolute bottom-3 right-3 opacity-30 pointer-events-none">
               <Heart className="w-6 h-6 text-pink-500" />
             </div>
-
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-2xl sm:text-3xl text-gray-800 font-bold leading-loose"
-            >
-              {reason}
-            </motion.div>
             
-            <div className="absolute top-2 right-2 text-pink-300 text-sm font-bold">
+            {/* Card number */}
+            <div className="absolute top-3 right-4 text-pink-300 text-sm font-bold pointer-events-none">
               #{index + 1}
+            </div>
+
+            {/* Content container with padding and center alignment */}
+            <div className="flex-1 w-full h-full flex flex-col items-center justify-center px-6 py-12 sm:px-12 sm:py-16 z-10">
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-sm sm:text-base md:text-lg text-gray-800 font-bold leading-relaxed w-full my-auto"
+              >
+                {reason}
+              </motion.div>
             </div>
           </motion.div>
         )}
